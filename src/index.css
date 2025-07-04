@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+.prose-invert {
+  --tw-prose-body: #e5e7eb;
+  --tw-prose-headings: #f3f4f6;
+  --tw-prose-links: #818cf8;
+  --tw-prose-code: #f472b6;
+}
+
+.prose pre {
+  background-color: #1e293b !important;
+  padding: 1rem !important;
+  border-radius: 0.5rem !important;
+}

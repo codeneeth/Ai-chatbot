@@ -1,105 +1,12 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Nova Chatbot</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./css/output.css">
-</head>
-<body class="bg-[#151a23] min-h-screen flex items-center justify-center">
-  <div id="app" class="flex w-full max-w-5xl h-[90vh] bg-[#181e29] rounded-2xl shadow-2xl overflow-hidden">
-    <!-- Sidebar -->
-    <aside id="sidebar" class="hidden md:flex flex-col w-56 bg-[#181e29] p-6">
-      <h1 id="app-title" class="text-3xl font-bold mb-10 text-white">Nova</h1>
-      <nav class="flex-1">
-        <ul class="space-y-2">
-          <li id="nav-home" class="flex items-center gap-3 px-4 py-3 rounded-lg bg-[#232b3b] text-white font-semibold cursor-pointer transition hover:bg-[#2563eb]">
-            <span>🏠</span> Home
-          </li>
-          <li id="nav-chat" class="flex items-center gap-3 px-4 py-3 rounded-lg text-[#b0b8c9] cursor-pointer transition hover:bg-[#232b3b] hover:text-white">
-            <span>💬</span> Chat
-          </li>
-          <li id="nav-history" class="flex items-center gap-3 px-4 py-3 rounded-lg text-[#b0b8c9] cursor-pointer transition hover:bg-[#232b3b] hover:text-white">
-            <span>🕑</span> History
-          </li>
-          <li id="nav-settings" class="flex items-center gap-3 px-4 py-3 rounded-lg text-[#b0b8c9] cursor-pointer transition hover:bg-[#232b3b] hover:text-white">
-            <span>⚙️</span> Settings
-          </li>
-        </ul>
-      </nav>
-    </aside>
-    <!-- Main Chat Area -->
-    <main id="main" class="flex flex-col flex-1 bg-[#1a202c]">
-      <!-- Header -->
-      <header class="flex justify-end p-6">
-        <span class="w-10 h-10 rounded-full bg-[#283046] flex items-center justify-center">
-          <svg class="w-6 h-6 text-[#b0b8c9]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <circle cx="12" cy="8" r="4"/>
-            <path d="M6 20c0-2.2 3.6-3.5 6-3.5s6 1.3 6 3.5"/>
-          </svg>
-        </span>
-      </header>
-      <!-- Chat Window -->
-      <section id="chat-window" class="flex-1 px-4 md:px-12 py-4 space-y-4 overflow-y-auto">
-        <div class="flex items-end gap-3 animate-fade-in" id="msg-1">
-          <span class="w-9 h-9 rounded-full bg-[#283046] flex items-center justify-center">
-            <svg class="w-5 h-5 text-[#b0b8c9]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <circle cx="12" cy="8" r="4"/>
-              <path d="M6 20c0-2.2 3.6-3.5 6-3.5s6 1.3 6 3.5"/>
-            </svg>
-          </span>
-          <div class="bg-[#232b3b] text-white px-5 py-3 rounded-2xl max-w-xs md:max-w-md shadow transition-all">
-            Hello! How can I assist you today?
-          </div>
-        </div>
-        <div class="flex items-end gap-3 justify-end animate-fade-in" id="msg-2">
-          <div class="bg-[#1e5c5c] text-white px-5 py-3 rounded-2xl max-w-xs md:max-w-md shadow transition-all">
-            Can you tell me about tomorrow’s weather?
-          </div>
-          <span class="w-9 h-9 rounded-full bg-[#283046] flex items-center justify-center">
-            <svg class="w-5 h-5 text-[#b0b8c9]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <circle cx="12" cy="8" r="4"/>
-              <path d="M6 20c0-2.2 3.6-3.5 6-3.5s6 1.3 6 3.5"/>
-            </svg>
-          </span>
-        </div>
-        <div class="flex items-end gap-3 animate-fade-in" id="msg-3">
-          <span class="w-9 h-9 rounded-full bg-[#283046] flex items-center justify-center">
-            <svg class="w-5 h-5 text-[#b0b8c9]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <circle cx="12" cy="8" r="4"/>
-              <path d="M6 20c0-2.2 3.6-3.5 6-3.5s6 1.3 6 3.5"/>
-            </svg>
-          </span>
-          <div class="bg-[#232b3b] text-white px-5 py-3 rounded-2xl max-w-xs md:max-w-md shadow transition-all">
-            Sure! Let me check the forecast for you.
-          </div>
-        </div>
-        <!-- AI response placeholder -->
-        <div class="flex items-end gap-3 animate-fade-in" id="msg-4" style="display:none;">
-          <span class="w-9 h-9 rounded-full bg-[#283046] flex items-center justify-center">
-            <svg class="w-5 h-5 text-[#b0b8c9]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <circle cx="12" cy="8" r="4"/>
-              <path d="M6 20c0-2.2 3.6-3.5 6-3.5s6 1.3 6 3.5"/>
-            </svg>
-          </span>
-          <div class="bg-[#232b3b] text-white px-5 py-3 rounded-2xl max-w-xs md:max-w-md shadow transition-all" id="ai-response"></div>
-        </div>
-      </section>
-      <!-- Input -->
-      <footer id="chat-input-area" class="flex items-center gap-3 p-4 md:p-6 bg-[#181e29] border-t border-[#232b3b]">
-        <input id="chat-input" type="text" placeholder="Type a message..." autocomplete="off"
-          class="flex-1 px-4 py-3 rounded-lg bg-[#232b3b] text-white placeholder-[#b0b8c9] focus:outline-none focus:ring-2 focus:ring-[#2563eb] transition"/>
-        <button id="send-btn" class="w-12 h-12 rounded-full bg-[#2563eb] flex items-center justify-center text-white text-2xl hover:bg-[#1e40af] transition">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
-        </button>
-      </footer>
-    </main>
-  </div>
-  <style>
-   
-  </style>
-  <script src="script.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ai-ChatBot</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
