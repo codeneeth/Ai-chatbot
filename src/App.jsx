@@ -7,7 +7,7 @@ const App = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 text-white">
       <Navbar />
-      <main className="max-w-5xl mx-auto flex flex-col items-center justify-center py-8 px-4">
+      <main className="max-w-5xl mx-auto flex flex-col items-center justify-center py-18 px-4">
         <ChatFace />
       </main>
     </div>
