@@ -25,7 +25,7 @@
 
 > Here's a quick preview of the UI
 
-![Preview](https://raw.githubusercontent.com/your-username/ai-chatbot//public/assets/preview.png)
+![Preview](https://raw.githubusercontent.com/codeneeth/ai-chatbot//public/assets/preview.png)
 
 ---
 
